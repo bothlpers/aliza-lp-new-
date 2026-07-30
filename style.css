@@ -1,5 +1,10 @@
 * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Montserrat', sans-serif; }
-body { background-color: #050914; background-image: radial-gradient(circle at 50% 0%, #1a1e35 0%, #050914 70%); color: #ffffff; overflow-x: hidden; }
+body {
+    background-color: #000000; /* Pure Black */
+    background-image: radial-gradient(circle at 50% 0%, #1a1a1a 0%, #000000 80%);
+    color: #ffffff;
+    overflow-x: hidden;
+}
 
 .gold-text { background: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C); -webkit-background-clip: text; color: transparent; font-weight: 800; }
 
