@@ -1,9 +1,36 @@
 * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Montserrat', sans-serif; }
-body {
-    background-color: #000000; /* Pure Black */
-    background-image: radial-gradient(circle at 50% 0%, #1a1a1a 0%, #000000 80%);
-    color: #ffffff;
-    overflow-x: hidden;
+
+body { 
+    background-color: #050914; 
+    color: #ffffff; 
+    overflow-x: hidden; 
+    position: relative;
+}
+
+/* ANIMATED TRADING BACKGROUND */
+.trading-chart-bg {
+    position: fixed;
+    top: 0; left: 0; width: 100vw; height: 100vh;
+    z-index: -1;
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+    background-size: 30px 30px;
+    animation: gridMove 15s linear infinite;
+}
+
+/* GOWING TRADING LINES SVG IN BACKGROUND */
+.trading-chart-bg::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; width: 100%; height: 50%;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="none" stroke="%232563EB" stroke-width="2" stroke-opacity="0.3" d="M0,160L48,144C96,128,192,96,288,106.7C384,117,480,171,576,165.3C672,160,768,96,864,85.3C960,75,1056,117,1152,149.3C1248,181,1344,203,1392,213.3L1440,224"></path><path fill="none" stroke="%23BF953F" stroke-width="2" stroke-opacity="0.3" d="M0,224L48,213.3C96,203,192,181,288,192C384,203,480,245,576,234.7C672,224,768,160,864,138.7C960,117,1056,139,1152,176C1248,213,1344,267,1392,293.3L1440,320"></path></svg>') no-repeat bottom;
+    background-size: cover;
+}
+
+@keyframes gridMove {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(30px); }
 }
 
 .gold-text { background: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C); -webkit-background-clip: text; color: transparent; font-weight: 800; }
@@ -13,34 +40,36 @@ body {
 
 .hero-section { position: relative; text-align: center; padding: 50px 20px 40px; }
 
+/* FIX: IMAGE INVISIBLE PROBLEM SOLVED */
 .profile-image {
-    width: 140px; height: 140px; border-radius: 50%; object-fit: cover; border: 4px solid transparent;
-    background: linear-gradient(to right, #BF953F, #FBF5B7) border-box;
-    -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor; mask-composite: exclude; padding: 4px;
-    box-shadow: 0 0 30px rgba(191, 149, 63, 0.4); margin-bottom: 20px;
+    width: 140px; height: 140px; 
+    border-radius: 50%; 
+    object-fit: cover; 
+    border: 3px solid #BF953F; /* Simple gold border, no complex masking */
+    box-shadow: 0 0 30px rgba(191, 149, 63, 0.4); 
+    margin-bottom: 20px;
+    background-color: #111; /* Fallback color */
 }
 
 h1 { font-size: 2.8rem; margin-bottom: 5px; }
 .tagline { font-size: 1rem; color: #94A3B8; margin-bottom: 15px; }
 
-.dubai-badge { display: inline-block; background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); border: 1px solid rgba(255, 215, 0, 0.3); padding: 8px 20px; border-radius: 30px; font-size: 0.95rem; font-weight: 600; color: #F8FAFC; margin-bottom: 35px; box-shadow: 0 4px 15px rgba(0,0,0,0.5); }
+.dubai-badge { display: inline-block; background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px); border: 1px solid rgba(255, 215, 0, 0.3); padding: 8px 20px; border-radius: 30px; font-size: 0.95rem; font-weight: 600; color: #F8FAFC; margin-bottom: 35px; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
 
 .button-group { display: flex; flex-direction: column; gap: 15px; max-width: 350px; margin: 0 auto; }
 .btn { display: flex; align-items: center; justify-content: center; gap: 10px; padding: 16px; border-radius: 50px; text-decoration: none; font-weight: 600; font-size: 1rem; transition: all 0.3s ease; }
-.btn-glow { background: linear-gradient(90deg, #2563EB, #1D4ED8); color: white; box-shadow: 0 0 20px rgba(37, 99, 235, 0.5); border: none; }
-.btn-outline { background: rgba(255, 255, 255, 0.05); color: #FBF5B7; border: 1px solid #BF953F; }
+.btn-glow { background: linear-gradient(90deg, #1e3a8a, #2563eb); color: white; box-shadow: 0 0 20px rgba(37, 99, 235, 0.3); border: 1px solid #3b82f6; }
+.btn-outline { background: rgba(255, 255, 255, 0.05); color: #FBF5B7; border: 1px solid #BF953F; backdrop-filter: blur(5px); }
 
 .benefits-list { margin-top: 25px; display: inline-flex; flex-direction: column; align-items: flex-start; gap: 8px; color: #cbd5e1; font-size: 0.95rem; font-weight: 500; }
 
-/* SCROLL INDICATOR STYLES */
 .scroll-indicator { margin-top: 35px; color: #94A3B8; font-size: 0.9rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
 .arrow-down { font-size: 1.5rem; color: #BF953F; margin-top: 5px; animation: bounce 2s infinite; }
 @keyframes bounce { 0%, 20%, 50%, 80%, 100% { transform: translateY(0); } 40% { transform: translateY(-10px); } 60% { transform: translateY(-5px); } }
 
 .premium-section { padding: 40px 20px; text-align: center; }
 .section-title { font-size: 2.2rem; margin-bottom: 30px; }
-.glass-card { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 20px; padding: 25px 15px; margin: 0 auto 30px auto; max-width: 800px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); }
+.glass-card { background: rgba(255, 255, 255, 0.02); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 20px; padding: 25px 15px; margin: 0 auto 30px auto; max-width: 800px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); }
 .glass-card h3 { color: #E2E8F0; margin-bottom: 20px; }
 
 .swiper { width: 100%; padding-bottom: 50px !important; min-height: 480px; }
@@ -50,8 +79,7 @@ h1 { font-size: 2.8rem; margin-bottom: 5px; }
 .swiper-pagination-bullet { background: #64748B; opacity: 1; }
 .swiper-pagination-bullet-active { background: #BF953F; width: 25px; border-radius: 10px; transition: 0.3s; }
 
-/* BOTTOM CTA SECTION */
 .bottom-cta-section { padding: 50px 20px; text-align: center; border-top: 1px solid rgba(255, 255, 255, 0.05); background: rgba(0, 0, 0, 0.3); }
 .bottom-cta-section h2 { font-size: 1.8rem; margin-bottom: 25px; }
 
-footer { background: #000; padding: 30px 20px; text-align: center; color: #64748B; font-size: 0.75rem; border-top: 1px solid rgba(191, 149, 63, 0.2); }
+footer { background: #000; padding: 30px 20px; text-align: center; color: #64748B; font-size: 0.75rem; border-top: 1px solid rgba(191, 149, 63, 0.2); z-index: 10; position: relative;}
