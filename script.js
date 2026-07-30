@@ -5,9 +5,7 @@ const config = {
     lossRecoveryCount: 16   // Loss Recovery
 };
 
-// Expanded image extensions to catch everything
 const imgExts = ['.jpg', '.jpeg', '.jpg.jpeg', '.png', '.JPG', '.JPEG', '.PNG'];
-// Video extensions for fallback
 const vidExts = ['.mp4', '.MP4', '.mov', '.MOV'];
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -24,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
         tryNext();
     }
 
-    // Helper: Smart Video Fallback Loader (Solves the video blank issue)
+    // Helper: Smart Video Fallback Loader
     function loadVideoWithFallback(wrapperId, basePath) {
         const wrapper = document.getElementById(wrapperId);
         const slide = document.createElement('div');
@@ -50,16 +48,12 @@ document.addEventListener('DOMContentLoaded', () => {
         wrapper.appendChild(slide);
     }
 
-    // 1. Load Profile Picture (Make sure your file is named 'profile' in that folder)
-    const profileImg = document.getElementById('profile-img');
-    loadMediaWithFallback(profileImg, './assets/profile/profile');
-
-    // 2. Load Lifestyle Videos
+    // 1. Load Lifestyle Videos
     for(let i = 1; i <= config.videosCount; i++) {
         loadVideoWithFallback('video-wrapper', `./assets/success-videos/${i}`);
     }
 
-    // 3. Load Sliders with JS Injection
+    // 2. Load Sliders with JS Injection
     function populateSlider(wrapperId, folderName, count) {
         const wrapper = document.getElementById(wrapperId);
         for(let i = 1; i <= count; i++) {
@@ -77,7 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
     populateSlider('vip-wrapper', 'vip', config.vipCount);
     populateSlider('loss-wrapper', 'loss-recovery', config.lossRecoveryCount);
 
-    // 4. Initialize Swiper.js
+    // 3. Initialize Swiper.js
     const swiperOptions = {
         effect: "coverflow", grabCursor: true, centeredSlides: true,
         slidesPerView: "auto", spaceBetween: 25, loop: true,
@@ -95,7 +89,7 @@ document.addEventListener('DOMContentLoaded', () => {
     lossSwiperOptions.autoplay = { delay: 1500, disableOnInteraction: false };
     new Swiper("#loss-swiper", lossSwiperOptions);
 
-    // 5. Scroll Animation Observer
+    // 4. Scroll Animation Observer
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
