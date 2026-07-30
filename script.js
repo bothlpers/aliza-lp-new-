@@ -101,4 +101,15 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.animate-on-scroll').forEach((el) => {
         observer.observe(el);
     });
+
+    // 5. META PIXEL TRACKING LOGIC FOR LEAD EVENTS
+    const trackingButtons = document.querySelectorAll('.track-telegram, .track-session');
+    trackingButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            // Check if Pixel is loaded before firing to prevent JS errors
+            if (typeof fbq === 'function') {
+                fbq('track', 'Lead');
+            }
+        });
+    });
 });
