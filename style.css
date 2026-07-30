@@ -1,0 +1,52 @@
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Montserrat', sans-serif; }
+body { background-color: #050914; background-image: radial-gradient(circle at 50% 0%, #1a1e35 0%, #050914 70%); color: #ffffff; overflow-x: hidden; }
+
+.gold-text { background: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C); -webkit-background-clip: text; color: transparent; font-weight: 800; }
+
+.animate-on-scroll { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
+.animate-on-scroll.visible { opacity: 1; transform: translateY(0); }
+
+.hero-section { position: relative; text-align: center; padding: 50px 20px 40px; }
+
+.profile-image {
+    width: 140px; height: 140px; border-radius: 50%; object-fit: cover; border: 4px solid transparent;
+    background: linear-gradient(to right, #BF953F, #FBF5B7) border-box;
+    -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor; mask-composite: exclude; padding: 4px;
+    box-shadow: 0 0 30px rgba(191, 149, 63, 0.4); margin-bottom: 20px;
+}
+
+h1 { font-size: 2.8rem; margin-bottom: 5px; }
+.tagline { font-size: 1rem; color: #94A3B8; margin-bottom: 15px; }
+
+.dubai-badge { display: inline-block; background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); border: 1px solid rgba(255, 215, 0, 0.3); padding: 8px 20px; border-radius: 30px; font-size: 0.95rem; font-weight: 600; color: #F8FAFC; margin-bottom: 35px; box-shadow: 0 4px 15px rgba(0,0,0,0.5); }
+
+.button-group { display: flex; flex-direction: column; gap: 15px; max-width: 350px; margin: 0 auto; }
+.btn { display: flex; align-items: center; justify-content: center; gap: 10px; padding: 16px; border-radius: 50px; text-decoration: none; font-weight: 600; font-size: 1rem; transition: all 0.3s ease; }
+.btn-glow { background: linear-gradient(90deg, #2563EB, #1D4ED8); color: white; box-shadow: 0 0 20px rgba(37, 99, 235, 0.5); border: none; }
+.btn-outline { background: rgba(255, 255, 255, 0.05); color: #FBF5B7; border: 1px solid #BF953F; }
+
+.benefits-list { margin-top: 25px; display: inline-flex; flex-direction: column; align-items: flex-start; gap: 8px; color: #cbd5e1; font-size: 0.95rem; font-weight: 500; }
+
+/* SCROLL INDICATOR STYLES */
+.scroll-indicator { margin-top: 35px; color: #94A3B8; font-size: 0.9rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
+.arrow-down { font-size: 1.5rem; color: #BF953F; margin-top: 5px; animation: bounce 2s infinite; }
+@keyframes bounce { 0%, 20%, 50%, 80%, 100% { transform: translateY(0); } 40% { transform: translateY(-10px); } 60% { transform: translateY(-5px); } }
+
+.premium-section { padding: 40px 20px; text-align: center; }
+.section-title { font-size: 2.2rem; margin-bottom: 30px; }
+.glass-card { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 20px; padding: 25px 15px; margin: 0 auto 30px auto; max-width: 800px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); }
+.glass-card h3 { color: #E2E8F0; margin-bottom: 20px; }
+
+.swiper { width: 100%; padding-bottom: 50px !important; min-height: 480px; }
+.swiper-slide { display: flex; justify-content: center; align-items: center; width: 260px; }
+.swiper-slide img, .swiper-slide video { width: 260px; height: 462px; object-fit: cover; border-radius: 16px; border: 2px solid #334155; box-shadow: 0 8px 25px rgba(0,0,0,0.6); background-color: #0f172a; color: transparent; }
+.swiper-slide video { border: 2px solid #BF953F; }
+.swiper-pagination-bullet { background: #64748B; opacity: 1; }
+.swiper-pagination-bullet-active { background: #BF953F; width: 25px; border-radius: 10px; transition: 0.3s; }
+
+/* BOTTOM CTA SECTION */
+.bottom-cta-section { padding: 50px 20px; text-align: center; border-top: 1px solid rgba(255, 255, 255, 0.05); background: rgba(0, 0, 0, 0.3); }
+.bottom-cta-section h2 { font-size: 1.8rem; margin-bottom: 25px; }
+
+footer { background: #000; padding: 30px 20px; text-align: center; color: #64748B; font-size: 0.75rem; border-top: 1px solid rgba(191, 149, 63, 0.2); }
